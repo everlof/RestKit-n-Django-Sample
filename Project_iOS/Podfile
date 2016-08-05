@@ -1,0 +1,6 @@
+platform :ios, '8.0'
+use_frameworks!
+
+target 'Cite' do
+pod 'RestKit', :git => 'https://github.com/mcfedr/RestKit.git', :branch => 'pods1'
+end
