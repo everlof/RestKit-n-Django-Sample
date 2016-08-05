@@ -24,6 +24,7 @@
 		C44CA5121D54FC6E00C97024 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C44CA5151D54FC6E00C97024 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C44CA5171D54FC6E00C97024 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4607EE51D54FE4300E26C0F /* Cite-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cite-Bridging-Header.h"; sourceTree = "<group>"; };
 		CD0DFA7EC5FD3BAE3DAB1C17 /* Pods-Cite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cite/Pods-Cite.debug.xcconfig"; sourceTree = "<group>"; };
 		F96E4C1710896DEE45C5513D /* Pods_Cite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -84,6 +85,7 @@
 				C44CA5121D54FC6E00C97024 /* Assets.xcassets */,
 				C44CA5141D54FC6E00C97024 /* LaunchScreen.storyboard */,
 				C44CA5171D54FC6E00C97024 /* Info.plist */,
+				C4607EE51D54FE4300E26C0F /* Cite-Bridging-Header.h */,
 			);
 			path = Cite;
 			sourceTree = "<group>";
@@ -328,6 +330,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = se.everlof.Cite.Cite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Cite/Cite-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -340,6 +343,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = se.everlof.Cite.Cite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Cite/Cite-Bridging-Header.h";
 			};
 			name = Release;
 		};
