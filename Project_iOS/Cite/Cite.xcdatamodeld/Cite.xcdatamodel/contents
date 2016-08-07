@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15E65" minimumToolsVersion="Xcode 7.0">
+    <entity name="HashTag" representedClassName=".HashTag" parentEntity="RemoteEntity" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="quotes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Quote" inverseName="hashtags" inverseEntity="Quote" syncable="YES"/>
+    </entity>
+    <entity name="Quote" representedClassName=".Quote" parentEntity="RemoteEntity" syncable="YES">
+        <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quote" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="hashtags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HashTag" inverseName="quotes" inverseEntity="HashTag" syncable="YES"/>
+        <relationship name="likers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="likes" inverseEntity="User" syncable="YES"/>
+        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="quotes" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="RemoteEntity" representedClassName=".RemoteEntity" isAbstract="YES" syncable="YES">
+        <attribute name="pk" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName=".User" parentEntity="RemoteEntity" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="likes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Quote" inverseName="likers" inverseEntity="Quote" syncable="YES"/>
+        <relationship name="quotes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Quote" inverseName="owner" inverseEntity="Quote" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="HashTag" positionX="-36" positionY="9" width="128" height="75"/>
+        <element name="Quote" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="RemoteEntity" positionX="-18" positionY="36" width="128" height="60"/>
+        <element name="User" positionX="-54" positionY="-9" width="128" height="105"/>
+    </elements>
+</model>

@@ -8,10 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		C44CA50C1D54FC6E00C97024 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44CA50B1D54FC6E00C97024 /* AppDelegate.swift */; };
-		C44CA50E1D54FC6E00C97024 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44CA50D1D54FC6E00C97024 /* ViewController.swift */; };
+		C44CA50E1D54FC6E00C97024 /* QuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44CA50D1D54FC6E00C97024 /* QuoteViewController.swift */; };
 		C44CA5111D54FC6E00C97024 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44CA50F1D54FC6E00C97024 /* Main.storyboard */; };
 		C44CA5131D54FC6E00C97024 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C44CA5121D54FC6E00C97024 /* Assets.xcassets */; };
 		C44CA5161D54FC6E00C97024 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44CA5141D54FC6E00C97024 /* LaunchScreen.storyboard */; };
+		C476D6071D5647C4002269BA /* Cite.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C476D6051D5647C4002269BA /* Cite.xcdatamodeld */; };
+		C476D6101D564921002269BA /* RemoteEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476D6081D564921002269BA /* RemoteEntity+CoreDataProperties.swift */; };
+		C476D6111D564921002269BA /* RemoteEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476D6091D564921002269BA /* RemoteEntity.swift */; };
+		C476D6121D564921002269BA /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476D60A1D564921002269BA /* User+CoreDataProperties.swift */; };
+		C476D6131D564921002269BA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476D60B1D564921002269BA /* User.swift */; };
+		C476D6141D564921002269BA /* Quote+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476D60C1D564921002269BA /* Quote+CoreDataProperties.swift */; };
+		C476D6151D564921002269BA /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476D60D1D564921002269BA /* Quote.swift */; };
+		C476D6161D564921002269BA /* HashTag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476D60E1D564921002269BA /* HashTag+CoreDataProperties.swift */; };
+		C476D6171D564921002269BA /* HashTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476D60F1D564921002269BA /* HashTag.swift */; };
+		C476D6231D57415E002269BA /* FetchedResultBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476D6221D57415E002269BA /* FetchedResultBaseController.swift */; };
+		C476D6271D574207002269BA /* QuoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476D6261D574207002269BA /* QuoteCell.swift */; };
 		C9E99169F3B2E79E21A5BFD7 /* Pods_Cite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F96E4C1710896DEE45C5513D /* Pods_Cite.framework */; };
 /* End PBXBuildFile section */
 
@@ -19,12 +30,23 @@
 		2F3E6647868951660C104E18 /* Pods-Cite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cite.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cite/Pods-Cite.release.xcconfig"; sourceTree = "<group>"; };
 		C44CA5081D54FC6E00C97024 /* Cite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44CA50B1D54FC6E00C97024 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C44CA50D1D54FC6E00C97024 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C44CA50D1D54FC6E00C97024 /* QuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewController.swift; sourceTree = "<group>"; };
 		C44CA5101D54FC6E00C97024 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C44CA5121D54FC6E00C97024 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C44CA5151D54FC6E00C97024 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C44CA5171D54FC6E00C97024 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4607EE51D54FE4300E26C0F /* Cite-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cite-Bridging-Header.h"; sourceTree = "<group>"; };
+		C476D6061D5647C4002269BA /* Cite.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cite.xcdatamodel; sourceTree = "<group>"; };
+		C476D6081D564921002269BA /* RemoteEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RemoteEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C476D6091D564921002269BA /* RemoteEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteEntity.swift; sourceTree = "<group>"; };
+		C476D60A1D564921002269BA /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C476D60B1D564921002269BA /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C476D60C1D564921002269BA /* Quote+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Quote+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C476D60D1D564921002269BA /* Quote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		C476D60E1D564921002269BA /* HashTag+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HashTag+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C476D60F1D564921002269BA /* HashTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashTag.swift; sourceTree = "<group>"; };
+		C476D6221D57415E002269BA /* FetchedResultBaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedResultBaseController.swift; sourceTree = "<group>"; };
+		C476D6261D574207002269BA /* QuoteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteCell.swift; sourceTree = "<group>"; };
 		CD0DFA7EC5FD3BAE3DAB1C17 /* Pods-Cite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cite/Pods-Cite.debug.xcconfig"; sourceTree = "<group>"; };
 		F96E4C1710896DEE45C5513D /* Pods_Cite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -79,8 +101,9 @@
 		C44CA50A1D54FC6E00C97024 /* Cite */ = {
 			isa = PBXGroup;
 			children = (
+				C476D6201D574149002269BA /* Controllers */,
+				C476D6041D5647AC002269BA /* CoreData */,
 				C44CA50B1D54FC6E00C97024 /* AppDelegate.swift */,
-				C44CA50D1D54FC6E00C97024 /* ViewController.swift */,
 				C44CA50F1D54FC6E00C97024 /* Main.storyboard */,
 				C44CA5121D54FC6E00C97024 /* Assets.xcassets */,
 				C44CA5141D54FC6E00C97024 /* LaunchScreen.storyboard */,
@@ -88,6 +111,56 @@
 				C4607EE51D54FE4300E26C0F /* Cite-Bridging-Header.h */,
 			);
 			path = Cite;
+			sourceTree = "<group>";
+		};
+		C476D6041D5647AC002269BA /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C476D6081D564921002269BA /* RemoteEntity+CoreDataProperties.swift */,
+				C476D6091D564921002269BA /* RemoteEntity.swift */,
+				C476D60A1D564921002269BA /* User+CoreDataProperties.swift */,
+				C476D60B1D564921002269BA /* User.swift */,
+				C476D60C1D564921002269BA /* Quote+CoreDataProperties.swift */,
+				C476D60D1D564921002269BA /* Quote.swift */,
+				C476D60E1D564921002269BA /* HashTag+CoreDataProperties.swift */,
+				C476D60F1D564921002269BA /* HashTag.swift */,
+				C476D6051D5647C4002269BA /* Cite.xcdatamodeld */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		C476D6201D574149002269BA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C476D6211D57414E002269BA /* Base */,
+				C476D6241D5741EA002269BA /* Quote */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		C476D6211D57414E002269BA /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				C476D6221D57415E002269BA /* FetchedResultBaseController.swift */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		C476D6241D5741EA002269BA /* Quote */ = {
+			isa = PBXGroup;
+			children = (
+				C476D6251D5741FA002269BA /* Cells */,
+				C44CA50D1D54FC6E00C97024 /* QuoteViewController.swift */,
+			);
+			name = Quote;
+			sourceTree = "<group>";
+		};
+		C476D6251D5741FA002269BA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C476D6261D574207002269BA /* QuoteCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,8 +284,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C44CA50E1D54FC6E00C97024 /* ViewController.swift in Sources */,
+				C476D6101D564921002269BA /* RemoteEntity+CoreDataProperties.swift in Sources */,
+				C44CA50E1D54FC6E00C97024 /* QuoteViewController.swift in Sources */,
+				C476D6141D564921002269BA /* Quote+CoreDataProperties.swift in Sources */,
+				C476D6271D574207002269BA /* QuoteCell.swift in Sources */,
+				C476D6121D564921002269BA /* User+CoreDataProperties.swift in Sources */,
+				C476D6151D564921002269BA /* Quote.swift in Sources */,
 				C44CA50C1D54FC6E00C97024 /* AppDelegate.swift in Sources */,
+				C476D6161D564921002269BA /* HashTag+CoreDataProperties.swift in Sources */,
+				C476D6111D564921002269BA /* RemoteEntity.swift in Sources */,
+				C476D6071D5647C4002269BA /* Cite.xcdatamodeld in Sources */,
+				C476D6171D564921002269BA /* HashTag.swift in Sources */,
+				C476D6131D564921002269BA /* User.swift in Sources */,
+				C476D6231D57415E002269BA /* FetchedResultBaseController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +453,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C476D6051D5647C4002269BA /* Cite.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C476D6061D5647C4002269BA /* Cite.xcdatamodel */,
+			);
+			currentVersion = C476D6061D5647C4002269BA /* Cite.xcdatamodel */;
+			path = Cite.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C44CA5001D54FC6E00C97024 /* Project object */;
 }

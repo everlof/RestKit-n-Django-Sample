@@ -1,0 +1,11 @@
+# Uncomment this line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'Cite' do
+  # Comment this line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Cite
+  pod 'AFNetworking', :git => 'https://github.com/mcfedr/AFNetworking.git', :branch => 'reachability'
+  pod 'RestKit', :git => 'https://github.com/mcfedr/RestKit.git', :branch => 'pods1'
+end

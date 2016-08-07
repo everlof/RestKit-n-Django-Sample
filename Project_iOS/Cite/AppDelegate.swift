@@ -8,14 +8,53 @@
 
 import UIKit
 
+func appDelegate() -> AppDelegate {
+    return UIApplication.sharedApplication().delegate as! AppDelegate
+}
+
+private var SERVER_PROTOCOL: String =    "http"
+private var SERVER_IP: String =          "127.0.0.1"
+private var SERVER_PORT: String  =       "8000"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var managedObjectStore: RKManagedObjectStore!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        setupRestkit()
+        
+        /*
+        let u: User = RemoteEntity.newInCoreData()
+        u.pk = NSNumber(integer: 2)
+        
+        RKObjectManager.sharedManager().getObject(u, path: nil, parameters: nil, success:{
+                (operation: RKObjectRequestOperation!, mappingResult: RKMappingResult!) -> Void in
+                print("Success!")
+            
+                print(u)
+                print(operation)
+                print(mappingResult)
+            }, failure: {
+                (operation: RKObjectRequestOperation!, error: NSError!) -> Void in
+                print("Fail!")
+                print(error)
+            })*/
+        
+        RKObjectManager.sharedManager().getObjectsAtPathForRouteNamed(Quote.listName, object: nil, parameters: nil, success: {
+            (operation: RKObjectRequestOperation!, mappingResult: RKMappingResult!) -> Void in
+            print("Success!")
+            
+                print(operation)
+                print(mappingResult)
+            }, failure: {
+                (operation: RKObjectRequestOperation!, error: NSError!) -> Void in
+                print("Fail!")
+                print(error)
+        })
+        
         return true
     }
 
@@ -41,6 +80,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func setupRestkit() {
+        
+        let baseURL = NSURL(string: "\(SERVER_PROTOCOL)://\(SERVER_IP):\(SERVER_PORT)")
+        let objectManager = RKObjectManager(baseURL: baseURL)
+        
+        AFNetworkActivityIndicatorManager.sharedManager().enabled = true
+        
+        let modelURL = NSBundle.mainBundle().URLForResource("Cite", withExtension: "momd")!
+        
+        let managedObjectModel = NSManagedObjectModel(contentsOfURL: modelURL)!
+        let managedObjectStore = RKManagedObjectStore(managedObjectModel: managedObjectModel)
+        objectManager.managedObjectStore = managedObjectStore
+        self.managedObjectStore = managedObjectStore
+        
+        RKlcl_configure_by_name("RestKit/CoreData", RKlcl_vDebug.rawValue)
+        RKlcl_configure_by_name("RestKit/Network", RKlcl_vDebug.rawValue);
+        RKlcl_configure_by_name("RestKit/ObjectMapping", RKlcl_vDebug.rawValue);
+        
+        RKObjectManager.sharedManager().requestSerializationMIMEType = RKMIMETypeJSON
+        
+        User.rkSetupRouter()
+        Quote.rkSetupRouter()
+        HashTag.rkSetupRouter()
+        
+        // We print it, to force the lazy load of the static properties
+        print(User.mapping)
+        print(HashTag.mapping)
+        print(Quote.mapping)
+        
+        managedObjectStore.createPersistentStoreCoordinator()
+        let storePath = RKApplicationDataDirectory().stringByAppendingString("/Cite.sqlite")
+        let _ = try! managedObjectStore.addSQLitePersistentStoreAtPath(storePath, fromSeedDatabaseAtPath: nil, withConfiguration: nil, options: nil)
+        
+        managedObjectStore.createManagedObjectContexts()
+        
+        managedObjectStore.managedObjectCache = RKInMemoryManagedObjectCache(managedObjectContext: managedObjectStore.persistentStoreManagedObjectContext)
+    }
+    
 }
 
