@@ -5,18 +5,9 @@ from django.contrib.auth.models import User
 from .models import *
 
 class CUserSerializer(serializers.ModelSerializer):
-    username = serializers.ReadOnlyField(source='user.username')
-
     class Meta:
         model = CUser
         fields = ('pk', 'username', 'email', 'first_name', 'last_name', 'avatar')
-
-class CUserCreateSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = CUser
-        fields = ('username', 'email', 'password', 'first_name',
-            'last_name')
-        extra_kwargs = { 'password' : { 'write_only' : True }}
 
 class CHashTagSerializer(serializers.ModelSerializer):
     class Meta:
@@ -25,8 +16,8 @@ class CHashTagSerializer(serializers.ModelSerializer):
 
 class CQuoteSerializer(serializers.ModelSerializer):
     hashtags = CHashTagSerializer(many=True, read_only=True)
-    likers = CUserCreateSerializer(many=True, read_only=True)
-    
+    likers = CUserSerializer(many=True, read_only=True)
+
     class Meta:
         model = CQuote
         fields = ('pk', 'quote', 'author', 'owner', 'likers', 'hashtags')

@@ -18,15 +18,18 @@ from django.contrib import admin
 from django.conf.urls import url, include
 from django.conf.urls.static import static
 from rest_framework.routers import DefaultRouter
+from rest_framework.authtoken import views as authviews
 from cite import views
 
 router = DefaultRouter()
-router.register(r'users', views.CUserViewSet)
-router.register(r'quotes', views.CQuoteViewSet)
-router.register(r'hashtags', views.CHashTagViewSet)
+router.register(r'users', views.CUserViewSet, 'CUser')
+router.register(r'quotes', views.CQuoteViewSet, 'CQuote')
+router.register(r'hashtags', views.CHashTagViewSet, 'CHashTag')
 
 urlpatterns = [
     url(r'^', include(router.urls)),
+    url(r'^users/register', views.create_user),  
+    url(r'^api-token-auth/', authviews.obtain_auth_token),
     url(r'^admin/', admin.site.urls),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
