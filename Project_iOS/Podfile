@@ -8,4 +8,6 @@ target 'Cite' do
   # Pods for Cite
   pod 'AFNetworking', :git => 'https://github.com/mcfedr/AFNetworking.git', :branch => 'reachability'
   pod 'RestKit', :git => 'https://github.com/mcfedr/RestKit.git', :branch => 'pods1'
+  
+  pod 'DZNEmptyDataSet'
 end

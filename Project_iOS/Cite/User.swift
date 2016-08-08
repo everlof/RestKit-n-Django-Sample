@@ -22,7 +22,18 @@ class User: RemoteEntity {
             "pk": "pk",
             "username": "username",
             "email": "email",
+            "last_name": "lastName",
+            "first_name": "firstName",
+            "is_superuser": "isSuperuser",
+            "avatar": "avatar",
         ])
+        
+        /*mapping.addPropertyMapping(
+            RKRelationshipMapping(
+                fromKeyPath: "friends",
+                toKeyPath: "friends",
+                withMapping: HashTag.mapping)
+        )*/
         
         return mapping
     }()
@@ -42,6 +53,13 @@ class User: RemoteEntity {
                 pathPattern: "/users/",
                 keyPath: nil,
                 statusCodes: RKStatusCodeIndexSetForClass(.Successful)
+            ),
+            RKResponseDescriptor(
+                mapping: mapping,
+                method: .GET,
+                pathPattern: "/me/",
+                keyPath: nil,
+                statusCodes: RKStatusCodeIndexSetForClass(.Successful)
             )
         ])
         
@@ -55,6 +73,7 @@ class User: RemoteEntity {
         ])
         
         RKObjectManager.sharedManager().router.routeSet.addRoutes([
+            RKRoute(name: LoginManager.loginRoute, pathPattern: "/me/", method: .GET),
             RKRoute(withClass: User.self, pathPattern: "/users/:pk/", method: .GET),
             RKRoute(withClass: User.self, pathPattern: "/users/", method: .POST),
             RKRoute(withClass: User.self, pathPattern: "/users/:pk/", method: .PUT),

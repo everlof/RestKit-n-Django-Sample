@@ -20,11 +20,24 @@ private var SERVER_PORT: String  =       "8000"
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    var loginManager: LoginManager! = nil
+    
+    var setup_controllers_once_token: dispatch_once_t = 0
+    
+    let mainTabBar = UITabBarController()
+    
     var managedObjectStore: RKManagedObjectStore!
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         setupRestkit()
+        
+        // We need to initialize restkit before we create `LoginManager`
+        // Since we use it's HTTPClient
+        loginManager = LoginManager()
+        
+        setupMainTabController()
         
         /*
         let u: User = RemoteEntity.newInCoreData()
@@ -43,6 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(error)
             })*/
         
+        /*
         RKObjectManager.sharedManager().getObjectsAtPathForRouteNamed(Quote.listName, object: nil, parameters: nil, success: {
             (operation: RKObjectRequestOperation!, mappingResult: RKMappingResult!) -> Void in
             print("Success!")
@@ -53,7 +67,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 (operation: RKObjectRequestOperation!, error: NSError!) -> Void in
                 print("Fail!")
                 print(error)
-        })
+        })*/
+        
+        self.window?.makeKeyAndVisible()
         
         return true
     }
@@ -80,6 +96,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func setupMainTabController() {
+        dispatch_once(&setup_controllers_once_token) {
+            var vcs = [UIViewController]()
+            
+            let quoteVC = QuoteViewController()
+            let quoteNavVC = UINavigationController()
+            quoteNavVC.setViewControllers([ quoteVC ], animated: false)
+            quoteNavVC.tabBarItem.title = "Quotes"
+            quoteNavVC.tabBarItem.image = UIImage(named: "ic_quotes")
+            vcs.append(quoteNavVC)
+            
+            self.mainTabBar.setViewControllers(vcs, animated: false)
+            
+            if self.window == nil {
+                self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            }
+            
+            self.window?.rootViewController = self.mainTabBar
+        }
+    }
+    
     func setupRestkit() {
         
         let baseURL = NSURL(string: "\(SERVER_PROTOCOL)://\(SERVER_IP):\(SERVER_PORT)")
