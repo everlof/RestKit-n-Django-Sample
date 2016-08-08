@@ -50,6 +50,23 @@ class Quote: RemoteEntity {
         return mapping
     }()
 
+    static let reqMapping: RKEntityMapping = {
+        let mapping = RKEntityMapping(
+            forEntityForName: String(Quote),
+            inManagedObjectStore: appDelegate().managedObjectStore)
+        
+        mapping.identificationAttributes = [ "pk" ]
+        mapping.addAttributeMappingsFromDictionary([
+            "pk": "pk",
+            "quote": "quote",
+            "author": "author",
+            "owner": "owner.pk"
+        ])
+        
+        return mapping
+    }()
+
+    
     override class func rkSetupRouter() {
         RKObjectManager.sharedManager().addResponseDescriptorsFromArray([
             RKResponseDescriptor(
@@ -70,7 +87,7 @@ class Quote: RemoteEntity {
         
         RKObjectManager.sharedManager().addRequestDescriptorsFromArray([
             RKRequestDescriptor(
-                mapping: mapping.inverseMapping(),
+                mapping: reqMapping.inverseMapping(),
                 objectClass: Quote.self,
                 rootKeyPath: nil,
                 method: .Any

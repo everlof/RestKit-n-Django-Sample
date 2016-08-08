@@ -11,6 +11,12 @@ from cite.serializers import *
 from cite.models import *
 from rest_framework.decorators import api_view, permission_classes
 
+@api_view(['GET'])
+@permission_classes((permissions.AllowAny,))
+def me(request):
+    serializer = CUserSerializer(request.user)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
 @api_view(['POST'])
 @permission_classes((permissions.AllowAny,))
 def create_user(request):
@@ -32,24 +38,19 @@ class CUserViewSet(viewsets.ModelViewSet):
     queryset = CUser.objects.all()
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
-#    def get_serializer_class(self):
-#        return CUserSerializer
-#
-#    def perform_create(self, serializer):
-#        serializer.save()
-#
-#    def create(self, request, *args, **kwargs):
-#        serializer = self.get_serializer(data=request.data)
-#        if serializer.is_valid(raise_exception=True):
-#            gsuser = CUser(**request.data)
-#            gsuser.set_password(request.data['password'])
-#            gsuser.save()
-#
-#            headers = self.get_success_headers(serializer.data)
-#            return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
-#        else:
-#            return Response(serialized._errors, status=status.HTTP_400_BAD_REQUEST)
+    def get_queryset(self):
+        """
+        This view should return a list of all the purchases
+        for the currently authenticated user.
+        """
+        user = self.request.user
+        if user.is_superuser:
+            return CUser.objects.all()
+        else:
+            return CUser.objects.filter(pk=user.pk)
 
+    def get_serializer_class(self):
+        return CUserSerializer
 
 class CQuoteViewSet(viewsets.ModelViewSet):
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)

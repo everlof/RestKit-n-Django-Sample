@@ -15,6 +15,36 @@ class QuoteViewController: FetchedResultBaseController
         self.tableView.registerClass(QuoteCell.self, forCellReuseIdentifier: QuoteCell.kReusableIdentifier)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let fetch = NSFetchRequest(entityName: String(Quote))
+        do {
+            let os = try RKObjectManager.sharedManager().managedObjectStore.mainQueueManagedObjectContext.executeFetchRequest(fetch) as! [Quote]
+            
+            for o in os {
+                RKObjectManager.sharedManager().HTTPClient.setAuthorizationHeaderWithUsername("tester", password: "tester")
+                if o.pk!.integerValue == 1 {
+                    print(o)
+                    
+                    o.quote = "Du ser ut som en påse skridskor!"
+                    RKObjectManager.sharedManager().putObject(o, path: nil, parameters: nil, success: {
+                            a, b in
+                            print("Success!")
+                        }, failure: {
+                            a, b in
+                            print("Fail")
+                    })
+                    
+                }
+            }
+            
+        } catch {
+            print(error)
+        }
+        
+    }
+    
     override func createFetchController() -> NSFetchedResultsController {
         let fetchRequest = NSFetchRequest(entityName: String(Quote))
         

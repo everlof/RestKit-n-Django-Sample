@@ -28,7 +28,8 @@ router.register(r'hashtags', views.CHashTagViewSet, 'CHashTag')
 
 urlpatterns = [
     url(r'^', include(router.urls)),
-    url(r'^users/register', views.create_user),  
+    url(r'^users/register', views.create_user),
+    url(r'^me', views.me),
     url(r'^api-token-auth/', authviews.obtain_auth_token),
     url(r'^admin/', admin.site.urls),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))

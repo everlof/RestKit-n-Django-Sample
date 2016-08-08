@@ -4,10 +4,16 @@ from rest_framework import serializers
 from django.contrib.auth.models import User
 from .models import *
 
-class CUserSerializer(serializers.ModelSerializer):
+class CFriendSerializer(serializers.ModelSerializer):
     class Meta:
         model = CUser
-        fields = ('pk', 'username', 'email', 'first_name', 'last_name', 'avatar')
+        fields = ('pk', 'username', 'first_name', 'last_name', 'avatar')
+
+class CUserSerializer(serializers.ModelSerializer):
+    friends = CFriendSerializer(many=True, read_only=True)
+    class Meta:
+        model = CUser
+        fields = ('pk', 'username', 'email', 'first_name', 'last_name', 'avatar', 'friends', 'is_superuser')
 
 class CHashTagSerializer(serializers.ModelSerializer):
     class Meta:

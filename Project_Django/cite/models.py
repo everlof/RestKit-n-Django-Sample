@@ -12,10 +12,8 @@ class GSFileSystemStorage(RandomFilenameFileSystemStorage):
         self.directory_permissions_mode = None
 
 class CUser(AbstractUser):
-    #user   = models.OneToOneField('auth.User', parent_link=True, on_delete=models.CASCADE)
     avatar = models.ImageField(blank=True, storage=GSFileSystemStorage())
-
-    REQUIRED_FIELDS = ['email']
+    friends = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True)
 
 class CHashTag(models.Model):
     tag = models.CharField(max_length=500)
@@ -23,6 +21,6 @@ class CHashTag(models.Model):
 class CQuote(models.Model):
     quote = models.CharField(max_length=500)
     author = models.CharField(max_length=500)
-    owner = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, related_name='owned_quotes')
-    likers = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='liked_quotes')
-    hashtags = models.ManyToManyField(CHashTag)
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='owned_quotes')
+    likers = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, related_name='liked_quotes')
+    hashtags = models.ManyToManyField(CHashTag, blank=True)
