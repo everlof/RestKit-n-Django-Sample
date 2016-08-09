@@ -12,6 +12,9 @@
 		C44CA5161D54FC6E00C97024 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44CA5141D54FC6E00C97024 /* LaunchScreen.storyboard */; };
 		C45C904C1D58BD2B0064FC3D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C904B1D58BD2B0064FC3D /* LoginViewController.swift */; };
 		C45C904E1D58BDAF0064FC3D /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C904D1D58BDAF0064FC3D /* LoginManager.swift */; };
+		C45C90511D5908470064FC3D /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C90501D5908470064FC3D /* UIFont+Extension.swift */; };
+		C45C90531D59D3B10064FC3D /* AddQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C90521D59D3B10064FC3D /* AddQuoteViewController.swift */; };
+		C45C90551D59D5300064FC3D /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C90541D59D5300064FC3D /* UITextView+Extension.swift */; };
 		C4731CA71D58BBD80095D706 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4731CA61D58BBD80095D706 /* Assets.xcassets */; };
 		C476D6071D5647C4002269BA /* Cite.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C476D6051D5647C4002269BA /* Cite.xcdatamodeld */; };
 		C476D6101D564921002269BA /* RemoteEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476D6081D564921002269BA /* RemoteEntity+CoreDataProperties.swift */; };
@@ -36,6 +39,9 @@
 		C44CA5171D54FC6E00C97024 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C45C904B1D58BD2B0064FC3D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C45C904D1D58BDAF0064FC3D /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
+		C45C90501D5908470064FC3D /* UIFont+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		C45C90521D59D3B10064FC3D /* AddQuoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddQuoteViewController.swift; sourceTree = "<group>"; };
+		C45C90541D59D5300064FC3D /* UITextView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		C4607EE51D54FE4300E26C0F /* Cite-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cite-Bridging-Header.h"; sourceTree = "<group>"; };
 		C4731CA61D58BBD80095D706 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C476D6061D5647C4002269BA /* Cite.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cite.xcdatamodel; sourceTree = "<group>"; };
@@ -103,6 +109,7 @@
 		C44CA50A1D54FC6E00C97024 /* Cite */ = {
 			isa = PBXGroup;
 			children = (
+				C45C904F1D5908330064FC3D /* Extensions */,
 				C476D6201D574149002269BA /* Controllers */,
 				C476D6041D5647AC002269BA /* CoreData */,
 				C44CA50B1D54FC6E00C97024 /* AppDelegate.swift */,
@@ -121,6 +128,15 @@
 				C45C904D1D58BDAF0064FC3D /* LoginManager.swift */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		C45C904F1D5908330064FC3D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C45C90501D5908470064FC3D /* UIFont+Extension.swift */,
+				C45C90541D59D5300064FC3D /* UITextView+Extension.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		C476D6041D5647AC002269BA /* CoreData */ = {
@@ -162,6 +178,7 @@
 			children = (
 				C476D6251D5741FA002269BA /* Cells */,
 				C44CA50D1D54FC6E00C97024 /* QuoteViewController.swift */,
+				C45C90521D59D3B10064FC3D /* AddQuoteViewController.swift */,
 			);
 			name = Quote;
 			sourceTree = "<group>";
@@ -299,6 +316,7 @@
 				C44CA50E1D54FC6E00C97024 /* QuoteViewController.swift in Sources */,
 				C476D6141D564921002269BA /* Quote+CoreDataProperties.swift in Sources */,
 				C476D6271D574207002269BA /* QuoteCell.swift in Sources */,
+				C45C90551D59D5300064FC3D /* UITextView+Extension.swift in Sources */,
 				C45C904E1D58BDAF0064FC3D /* LoginManager.swift in Sources */,
 				C476D6121D564921002269BA /* User+CoreDataProperties.swift in Sources */,
 				C476D6151D564921002269BA /* Quote.swift in Sources */,
@@ -308,6 +326,8 @@
 				C476D6071D5647C4002269BA /* Cite.xcdatamodeld in Sources */,
 				C476D6171D564921002269BA /* HashTag.swift in Sources */,
 				C476D6131D564921002269BA /* User.swift in Sources */,
+				C45C90531D59D3B10064FC3D /* AddQuoteViewController.swift in Sources */,
+				C45C90511D5908470064FC3D /* UIFont+Extension.swift in Sources */,
 				C476D6231D57415E002269BA /* FetchedResultBaseController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

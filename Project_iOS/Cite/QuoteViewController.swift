@@ -12,12 +12,32 @@ class QuoteViewController: FetchedResultBaseController
 {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationItem.title = "Quotes"
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Add",
+            style: .Plain,
+            target: self,
+            action: #selector(addNewQuote)
+        )
+        
         self.tableView.registerClass(QuoteCell.self, forCellReuseIdentifier: QuoteCell.kReusableIdentifier)
+    }
+    
+    func addNewQuote() {
+        self.navigationController?.pushViewController(AddQuoteViewController(), animated: true)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        RKObjectManager.sharedManager().getObjectsAtPathForRouteNamed(Quote.listName, object: nil, parameters: nil, success: {
+                reqOp, mapping in
+                print("ok")
+        }, failure: {
+                reqOp, err in
+                print("Fail")
+        })
     }
     
     override func createFetchController() -> NSFetchedResultsController {

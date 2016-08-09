@@ -37,38 +37,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Since we use it's HTTPClient
         loginManager = LoginManager()
         
+        // Untill we got a login-view-controller
+        loginManager.login("lina", password: "lina")
+        
         setupMainTabController()
-        
-        /*
-        let u: User = RemoteEntity.newInCoreData()
-        u.pk = NSNumber(integer: 2)
-        
-        RKObjectManager.sharedManager().getObject(u, path: nil, parameters: nil, success:{
-                (operation: RKObjectRequestOperation!, mappingResult: RKMappingResult!) -> Void in
-                print("Success!")
-            
-                print(u)
-                print(operation)
-                print(mappingResult)
-            }, failure: {
-                (operation: RKObjectRequestOperation!, error: NSError!) -> Void in
-                print("Fail!")
-                print(error)
-            })*/
-        
-        /*
-        RKObjectManager.sharedManager().getObjectsAtPathForRouteNamed(Quote.listName, object: nil, parameters: nil, success: {
-            (operation: RKObjectRequestOperation!, mappingResult: RKMappingResult!) -> Void in
-            print("Success!")
-            
-                print(operation)
-                print(mappingResult)
-            }, failure: {
-                (operation: RKObjectRequestOperation!, error: NSError!) -> Void in
-                print("Fail!")
-                print(error)
-        })*/
-        
+
         self.window?.makeKeyAndVisible()
         
         return true

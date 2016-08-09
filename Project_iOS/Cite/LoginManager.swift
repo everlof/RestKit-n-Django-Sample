@@ -64,6 +64,23 @@ class LoginManager {
         }
     }
     
+    func loggedInUserInContext(context: NSManagedObjectContext) -> User? {
+        var user: User? = nil
+        
+        context.performBlockAndWait({
+            let fetchRequest = NSFetchRequest(entityName: String(User))
+            fetchRequest.predicate = NSPredicate(format: "pk == %@", appDelegate().loginManager.loggedInUser!.pk!)
+            
+            do {
+                user = (try context.executeFetchRequest(fetchRequest) as! [User]).first
+            } catch {
+                print("error: \(error)")
+            }
+        })
+        
+        return user
+    }
+    
     func login(username: String, password: String) {
         RKObjectManager.sharedManager().HTTPClient.postPath("api-token-auth/", parameters: [
             "username": username,

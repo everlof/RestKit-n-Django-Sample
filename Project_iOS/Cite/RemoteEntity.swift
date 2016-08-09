@@ -11,10 +11,6 @@ import CoreData
 
 
 class RemoteEntity: NSManagedObject {
-    
-    class func newInCoreData<T: NSManagedObject>() -> T {
-        return NSEntityDescription.insertNewObjectForEntityForName(String(T), inManagedObjectContext: RKObjectManager.sharedManager().managedObjectStore.mainQueueManagedObjectContext) as! T
-    }
 
     class func rkMapping(store: RKManagedObjectStore) -> RKEntityMapping {
         fatalError()
