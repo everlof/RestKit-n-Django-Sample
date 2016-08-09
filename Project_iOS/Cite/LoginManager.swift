@@ -10,58 +10,105 @@ import Foundation
 
 class LoginManager {
     
+    enum LoginEvent: String {
+        case LogOut = "LogOut"
+        case LogIn = "LogIn"
+    }
+    
+    static let kLoginChange = "LoginChangeNotification"
+    
+    static let kLoginChangeUserInfoEventKey = "LoginEvent"
+    
     static let loginRoute = "RK_LOGIN_ROUTE"
     
-    static let kTokenKey = "kTokenKey"
+    static let kUserKey = "kUserPKKey"
     
-    var token: String? {
-        didSet {
-            self.utilizeToken()
+    private var _loggedInUser: User?
+    var loggedInUser: User? {
+        get {
+            return _loggedInUser
+        }
+        set (newVal) {
+            if let token = newVal?.token {
+                RKObjectManager.sharedManager().HTTPClient.setDefaultHeader("Authorization", value: "Token \(token)")
+            }
+            
+            if newVal == nil {
+                NSNotificationCenter.defaultCenter().postNotificationName(LoginManager.kLoginChange, object: nil, userInfo: [LoginManager.kLoginChangeUserInfoEventKey: LoginEvent.LogOut.rawValue])
+            } else {
+                NSNotificationCenter.defaultCenter().postNotificationName(LoginManager.kLoginChange, object: nil, userInfo: [LoginManager.kLoginChangeUserInfoEventKey: LoginEvent.LogIn.rawValue])
+            }
+            
+            _loggedInUser = newVal
         }
     }
-    
-    var loggedInUser: User?
     
     init() {
-        token = NSUserDefaults.standardUserDefaults().stringForKey(LoginManager.kTokenKey)
         
-        if let t = token {
-            print("Will use token: \(t)")
-            utilizeToken()
-        } else {
-            print("No token present, maybe present login-view?")
+        // If we we're logged in before - we will use that (untill token is proven bad)
+        if let userPK = NSUserDefaults.standardUserDefaults().objectForKey(LoginManager.kUserKey) as? NSNumber {
+            let fetchRequest = NSFetchRequest(entityName: String(User))
+            fetchRequest.predicate = NSPredicate(format: "pk == %@", userPK)
+            
+            do {
+                let user = try (RKObjectManager.sharedManager().managedObjectStore.mainQueueManagedObjectContext.executeFetchRequest(fetchRequest) as! [User]).first
+                self.loggedInUser = user
+            } catch {
+                print("error: \(error)")
+            }
         }
+        
+        checkToken(nil, ok: nil, notOk: nil)
     }
     
-    func utilizeToken() {
-        NSUserDefaults.standardUserDefaults().setObject(self.token, forKey: LoginManager.kTokenKey)
-        NSUserDefaults.standardUserDefaults().synchronize()
-        print("Set \(NSUserDefaults.standardUserDefaults().stringForKey(LoginManager.kTokenKey)) for NSUserDefault key: \(LoginManager.kTokenKey)")
+    func checkToken(token: String?, ok: (() -> Void)?, notOk: (() -> Void)?) {
         
-        guard let token = self.token else {
-            print("No token to utilize.")
+        // Default is to use the provided token - if one was provided
+        var tokenToUse = token
+        
+        // If token wasnt provided, and user has token, we use that
+        if let userToken = loggedInUser?.token where tokenToUse == nil {
+            tokenToUse = userToken
+        }
+        
+        if tokenToUse == nil {
+            self.loggedInUser = nil
+            NSUserDefaults.standardUserDefaults().removeObjectForKey(LoginManager.kUserKey)
+            notOk?()
             return
         }
         
-        RKObjectManager.sharedManager().HTTPClient.setDefaultHeader("Authorization", value: "Token \(token)")
+        RKObjectManager.sharedManager().HTTPClient.setDefaultHeader("Authorization", value: "Token \(tokenToUse!)")
         RKObjectManager.sharedManager().getObjectsAtPathForRouteNamed(LoginManager.loginRoute, object: nil, parameters: nil, success: {
                 op, mapResult in
                 if let user = mapResult.firstObject as? User {
+                    // Persist user PK in NSUserDefault
+                    NSUserDefaults.standardUserDefaults().setObject(user.pk!, forKey: LoginManager.kUserKey)
+                    
+                    print("Token OK - \(user.username!) logged in")
+                    
                     self.loggedInUser = user
-                    print("\(user.username!) logged in")
+                    
+                    RKObjectManager.sharedManager().managedObjectStore.mainQueueManagedObjectContext.performBlockAndWait({
+                        self.loggedInUser?.token = tokenToUse
+                        
+                        do {
+                            try RKObjectManager.sharedManager().managedObjectStore.mainQueueManagedObjectContext.saveToPersistentStore()
+                        } catch {
+                            print("error: \(error)")
+                        }
+                    })
+                    
+                    ok?()
                 }
             }, failure: {
                 op, err in
-                print("Failed to log in user...")
+                print("Token NOT OK")
                 print(err)
-                self.token = nil
+                NSUserDefaults.standardUserDefaults().removeObjectForKey(LoginManager.kUserKey)
+                self.loggedInUser = nil
+                notOk?()
         })
-    }
-    
-    func appDidBecomeActive() {
-        if let user = loggedInUser {
-            print("Last \(user.username!) was logged in.")
-        }
     }
     
     func loggedInUserInContext(context: NSManagedObjectContext) -> User? {
@@ -81,7 +128,7 @@ class LoginManager {
         return user
     }
     
-    func login(username: String, password: String) {
+    func login(username: String, password: String, ok: (() -> Void)?, notOk: (() -> Void)?) {
         RKObjectManager.sharedManager().HTTPClient.postPath("api-token-auth/", parameters: [
             "username": username,
             "password": password
@@ -90,11 +137,16 @@ class LoginManager {
             reqObj, any in
             if let result =  any as? [String: String],
                 let gotToken = result["token"] {
-                print("Got token: \(gotToken)")
-                self.token = gotToken
+                print("Got token: \(gotToken), will now check it, to get the user details etc.")
+                self.checkToken(gotToken, ok: {
+                    ok?()
+                }, notOk: {
+                    notOk?()
+                })
             }
         }, failure: {
-                reqOp, err in
+            reqOp, err in
+            notOk?()
         })
     }
  

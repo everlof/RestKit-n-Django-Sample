@@ -20,6 +20,7 @@
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isSuperuser" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="token" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="likes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Quote" inverseName="likers" inverseEntity="Quote" syncable="YES"/>
         <relationship name="quotes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Quote" inverseName="owner" inverseEntity="Quote" syncable="YES"/>
@@ -28,6 +29,6 @@
         <element name="HashTag" positionX="-36" positionY="9" width="128" height="75"/>
         <element name="Quote" positionX="-63" positionY="-18" width="128" height="120"/>
         <element name="RemoteEntity" positionX="-18" positionY="36" width="128" height="60"/>
-        <element name="User" positionX="-54" positionY="-9" width="128" height="165"/>
+        <element name="User" positionX="-54" positionY="-9" width="128" height="180"/>
     </elements>
 </model>

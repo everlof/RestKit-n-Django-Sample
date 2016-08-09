@@ -37,9 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Since we use it's HTTPClient
         loginManager = LoginManager()
         
-        // Untill we got a login-view-controller
-        loginManager.login("tester", password: "tester")
-        
         setupMainTabController()
 
         self.window?.makeKeyAndVisible()
@@ -86,7 +83,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
             }
             
-            self.window?.rootViewController = self.mainTabBar
+            if self.loginManager.loggedInUser == nil {
+                self.window?.rootViewController = LoginViewController()
+            } else {
+                self.window?.rootViewController = self.mainTabBar
+            }
+            
         }
     }
     
