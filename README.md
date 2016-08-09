@@ -47,6 +47,5 @@ python manage.py runserver
 curl -XPOST http://127.0.0.1:8000/users/register \
 -d '{"username":"tester","password":"tester","email":"test@test.com"}' \
 -H "Content-Type: application/json"
-```
-
 # Use the app and log in with tester/tester!
+```
