@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         loginManager = LoginManager()
         
         // Untill we got a login-view-controller
-        loginManager.login("lina", password: "lina")
+        loginManager.login("tester", password: "tester")
         
         setupMainTabController()
 
