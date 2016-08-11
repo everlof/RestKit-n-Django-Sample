@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var loginManager: LoginManager! = nil
     
-    var setup_controllers_once_token: dispatch_once_t = 0
+    var setupControllersOnceToken: dispatch_once_t = 0
     
     let mainTabBar = UITabBarController()
     
@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupRestkit()
         
         // We need to initialize restkit before we create `LoginManager`
-        // Since we use it's HTTPClient
+        // Since we use the HTTPClient of RestKit
         loginManager = LoginManager()
         
         setupMainTabController()
@@ -67,7 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func setupMainTabController() {
-        dispatch_once(&setup_controllers_once_token) {
+        dispatch_once(&setupControllersOnceToken) {
             var vcs = [UIViewController]()
             
             let quoteVC = QuoteViewController()

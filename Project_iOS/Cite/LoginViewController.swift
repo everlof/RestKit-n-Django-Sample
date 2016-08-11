@@ -70,6 +70,10 @@ class LoginViewController: UIViewController {
         
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+    
     func didPressSignIn() {
         if let username = usernameInput.value, password = passwordInput.value {
             appDelegate().loginManager.login(username, password: password, ok: {

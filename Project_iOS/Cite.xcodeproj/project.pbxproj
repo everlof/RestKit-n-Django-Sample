@@ -167,6 +167,13 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		C45C90611D5C57A80064FC3D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
 		C476D6041D5647AC002269BA /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +195,7 @@
 			children = (
 				C476D6211D57414E002269BA /* Base */,
 				C45C904A1D58BD1D0064FC3D /* Login */,
+				C45C90611D5C57A80064FC3D /* Profile */,
 				C476D6241D5741EA002269BA /* Quote */,
 			);
 			name = Controllers;
