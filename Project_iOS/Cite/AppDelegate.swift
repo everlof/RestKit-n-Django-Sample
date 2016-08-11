@@ -88,7 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             } else {
                 self.window?.rootViewController = self.mainTabBar
             }
-            
+
         }
     }
     
@@ -106,9 +106,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         objectManager.managedObjectStore = managedObjectStore
         self.managedObjectStore = managedObjectStore
         
-        RKlcl_configure_by_name("RestKit/CoreData", RKlcl_vDebug.rawValue)
-        RKlcl_configure_by_name("RestKit/Network", RKlcl_vDebug.rawValue);
-        RKlcl_configure_by_name("RestKit/ObjectMapping", RKlcl_vDebug.rawValue);
+        //RKlcl_configure_by_name("RestKit/CoreData", RKlcl_vDebug.rawValue)
+        //RKlcl_configure_by_name("RestKit/Network", RKlcl_vDebug.rawValue);
+        //RKlcl_configure_by_name("RestKit/ObjectMapping", RKlcl_vDebug.rawValue);
+        
+        RKlcl_configure_by_name("RestKit/CoreData", RKlcl_vError.rawValue)
+        RKlcl_configure_by_name("RestKit/Network", RKlcl_vError.rawValue);
+        RKlcl_configure_by_name("RestKit/ObjectMapping", RKlcl_vError.rawValue);
         
         RKObjectManager.sharedManager().requestSerializationMIMEType = RKMIMETypeJSON
         

@@ -15,6 +15,10 @@
 		C45C90511D5908470064FC3D /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C90501D5908470064FC3D /* UIFont+Extension.swift */; };
 		C45C90531D59D3B10064FC3D /* AddQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C90521D59D3B10064FC3D /* AddQuoteViewController.swift */; };
 		C45C90551D59D5300064FC3D /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C90541D59D5300064FC3D /* UITextView+Extension.swift */; };
+		C45C90571D5C4BD70064FC3D /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C90561D5C4BD70064FC3D /* UIView+Extension.swift */; };
+		C45C90591D5C52EC0064FC3D /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C90581D5C52EC0064FC3D /* UIColor+Extension.swift */; };
+		C45C905E1D5C538E0064FC3D /* LoginFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C905D1D5C538E0064FC3D /* LoginFieldContainer.swift */; };
+		C45C90601D5C54130064FC3D /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C905F1D5C54130064FC3D /* UIImage+Extension.swift */; };
 		C4731CA71D58BBD80095D706 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4731CA61D58BBD80095D706 /* Assets.xcassets */; };
 		C476D6071D5647C4002269BA /* Cite.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C476D6051D5647C4002269BA /* Cite.xcdatamodeld */; };
 		C476D6101D564921002269BA /* RemoteEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476D6081D564921002269BA /* RemoteEntity+CoreDataProperties.swift */; };
@@ -42,6 +46,10 @@
 		C45C90501D5908470064FC3D /* UIFont+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		C45C90521D59D3B10064FC3D /* AddQuoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddQuoteViewController.swift; sourceTree = "<group>"; };
 		C45C90541D59D5300064FC3D /* UITextView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
+		C45C90561D5C4BD70064FC3D /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		C45C90581D5C52EC0064FC3D /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		C45C905D1D5C538E0064FC3D /* LoginFieldContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginFieldContainer.swift; sourceTree = "<group>"; };
+		C45C905F1D5C54130064FC3D /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		C4607EE51D54FE4300E26C0F /* Cite-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cite-Bridging-Header.h"; sourceTree = "<group>"; };
 		C4731CA61D58BBD80095D706 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C476D6061D5647C4002269BA /* Cite.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cite.xcdatamodel; sourceTree = "<group>"; };
@@ -124,8 +132,9 @@
 		C45C904A1D58BD1D0064FC3D /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				C45C905C1D5C537D0064FC3D /* Model */,
+				C45C905B1D5C53760064FC3D /* View */,
 				C45C904B1D58BD2B0064FC3D /* LoginViewController.swift */,
-				C45C904D1D58BDAF0064FC3D /* LoginManager.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -135,8 +144,27 @@
 			children = (
 				C45C90501D5908470064FC3D /* UIFont+Extension.swift */,
 				C45C90541D59D5300064FC3D /* UITextView+Extension.swift */,
+				C45C90561D5C4BD70064FC3D /* UIView+Extension.swift */,
+				C45C90581D5C52EC0064FC3D /* UIColor+Extension.swift */,
+				C45C905F1D5C54130064FC3D /* UIImage+Extension.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		C45C905B1D5C53760064FC3D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C45C905D1D5C538E0064FC3D /* LoginFieldContainer.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		C45C905C1D5C537D0064FC3D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C45C904D1D58BDAF0064FC3D /* LoginManager.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		C476D6041D5647AC002269BA /* CoreData */ = {
@@ -320,15 +348,19 @@
 				C45C904E1D58BDAF0064FC3D /* LoginManager.swift in Sources */,
 				C476D6121D564921002269BA /* User+CoreDataProperties.swift in Sources */,
 				C476D6151D564921002269BA /* Quote.swift in Sources */,
+				C45C90601D5C54130064FC3D /* UIImage+Extension.swift in Sources */,
 				C44CA50C1D54FC6E00C97024 /* AppDelegate.swift in Sources */,
+				C45C905E1D5C538E0064FC3D /* LoginFieldContainer.swift in Sources */,
 				C476D6161D564921002269BA /* HashTag+CoreDataProperties.swift in Sources */,
 				C476D6111D564921002269BA /* RemoteEntity.swift in Sources */,
+				C45C90571D5C4BD70064FC3D /* UIView+Extension.swift in Sources */,
 				C476D6071D5647C4002269BA /* Cite.xcdatamodeld in Sources */,
 				C476D6171D564921002269BA /* HashTag.swift in Sources */,
 				C476D6131D564921002269BA /* User.swift in Sources */,
 				C45C90531D59D3B10064FC3D /* AddQuoteViewController.swift in Sources */,
 				C45C90511D5908470064FC3D /* UIFont+Extension.swift in Sources */,
 				C476D6231D57415E002269BA /* FetchedResultBaseController.swift in Sources */,
+				C45C90591D5C52EC0064FC3D /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

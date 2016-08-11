@@ -47,6 +47,7 @@ class AddQuoteViewController: UIViewController,
     }
     
     func publish() {
+        
         // All modifications must be performed on the correct thread
         // which we accomplish by using `performBlock(AndWait)`
         self.context.performBlockAndWait({

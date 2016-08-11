@@ -33,7 +33,7 @@ class QuoteViewController: FetchedResultBaseController
         super.viewWillAppear(animated)
         RKObjectManager.sharedManager().getObjectsAtPathForRouteNamed(Quote.listName, object: nil, parameters: nil, success: {
                 reqOp, mapping in
-                print("ok")
+                print("Quotes listed successfully!")
         }, failure: {
                 reqOp, err in
                 print("Fail")
