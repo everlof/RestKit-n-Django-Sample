@@ -17,6 +17,8 @@ Get stuff up and running:
  3. Run the django server
  4. Run the iOS app
 
+A good example of changes that must be performed in order to change a model, all the way from back-end to the front-end, is shown in 6fa5fc46a19b603005be505b967747eef2cd672b, where `created` and `modified` is added to the `Quote`-model.
+
 Get stuff up and running _detailed_:
 ```bash
 # Create a virtual environment
