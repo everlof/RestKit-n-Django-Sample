@@ -24,6 +24,8 @@ class Quote: RemoteEntity {
             "pk": "pk",
             "quote": "quote",
             "author": "author",
+            "created": "created",
+            "modified": "modified",
         ])
         
         mapping.addPropertyMapping(

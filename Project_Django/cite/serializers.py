@@ -26,4 +26,4 @@ class CQuoteSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CQuote
-        fields = ('pk', 'quote', 'author', 'owner', 'likers', 'hashtags')
+        fields = ('pk', 'quote', 'author', 'owner', 'likers', 'hashtags', 'created', 'modified')

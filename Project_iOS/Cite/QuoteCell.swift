@@ -81,9 +81,19 @@ class QuoteCell: UITableViewCell
     func configureFor(q: Quote) -> UITableViewCell {
         let quote = q.quote ?? "-"
         let author = q.author ?? "Unknown"
+        let date = q.created ?? NSDate()
+        
+        struct TimeFormatter {
+            static let formatter: NSDateFormatter = {
+                let formatter = NSDateFormatter()
+                formatter.locale = NSLocale(localeIdentifier: "en_US")
+                formatter.dateFormat = "LLL yyy"
+                return formatter
+            }()
+        }
         
         quoteLabel.text = "“\(quote)”"
-        authorLabel.text = "- \(author)"
+        authorLabel.text = "- \(author), \(TimeFormatter.formatter.stringFromDate(date))"
         
         return self
     }

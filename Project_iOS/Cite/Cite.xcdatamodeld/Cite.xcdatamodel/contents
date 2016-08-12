@@ -6,6 +6,8 @@
     </entity>
     <entity name="Quote" representedClassName=".Quote" parentEntity="RemoteEntity" syncable="YES">
         <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="created" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="modified" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="quote" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="hashtags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HashTag" inverseName="quotes" inverseEntity="HashTag" syncable="YES"/>
         <relationship name="likers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="likes" inverseEntity="User" syncable="YES"/>
@@ -27,7 +29,7 @@
     </entity>
     <elements>
         <element name="HashTag" positionX="-36" positionY="9" width="128" height="75"/>
-        <element name="Quote" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Quote" positionX="-63" positionY="-18" width="128" height="150"/>
         <element name="RemoteEntity" positionX="-18" positionY="36" width="128" height="60"/>
         <element name="User" positionX="-54" positionY="-9" width="128" height="180"/>
     </elements>

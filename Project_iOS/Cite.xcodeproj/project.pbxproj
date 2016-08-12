@@ -123,9 +123,9 @@
 		C44CA50A1D54FC6E00C97024 /* Cite */ = {
 			isa = PBXGroup;
 			children = (
+				C476D6041D5647AC002269BA /* CoreData */,
 				C45C904F1D5908330064FC3D /* Extensions */,
 				C476D6201D574149002269BA /* Controllers */,
-				C476D6041D5647AC002269BA /* CoreData */,
 				C44CA50B1D54FC6E00C97024 /* AppDelegate.swift */,
 				C44CA5141D54FC6E00C97024 /* LaunchScreen.storyboard */,
 				C4731CA61D58BBD80095D706 /* Assets.xcassets */,

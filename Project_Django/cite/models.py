@@ -21,6 +21,15 @@ class CHashTag(models.Model):
 class CQuote(models.Model):
     quote = models.CharField(max_length=500)
     author = models.CharField(max_length=500)
+    created = models.DateTimeField(editable=False)
+    modified = models.DateTimeField()
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='owned_quotes')
     likers = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, related_name='liked_quotes')
     hashtags = models.ManyToManyField(CHashTag, blank=True)
+
+    def save(self, *args, **kwargs):
+        ''' On save, update timestamps '''
+        if not self.id:
+            self.created = timezone.now()
+        self.modified = timezone.now()
+        return super(models.Model, self).save(*args, **kwargs)
