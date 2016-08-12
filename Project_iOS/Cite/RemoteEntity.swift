@@ -11,13 +11,13 @@ import CoreData
 
 
 class RemoteEntity: NSManagedObject {
-
-    class func rkMapping(store: RKManagedObjectStore) -> RKEntityMapping {
-        fatalError()
-    }
-
-    class func rkSetupRouter() {
-        fatalError()
-    }
-    
+  
+  class func rkMapping(store: RKManagedObjectStore) -> RKEntityMapping {
+    fatalError()
+  }
+  
+  class func rkSetupRouter() {
+    fatalError()
+  }
+  
 }

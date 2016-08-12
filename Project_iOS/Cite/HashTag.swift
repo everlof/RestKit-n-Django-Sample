@@ -11,25 +11,25 @@ import CoreData
 
 
 class HashTag: RemoteEntity {
-
-    static let mapping: RKEntityMapping = {
-        let mapping = RKEntityMapping(
-            forEntityForName: String(HashTag),
-            inManagedObjectStore: appDelegate().managedObjectStore)
-        
-        mapping.identificationAttributes = [ "pk" ]
-        mapping.addAttributeMappingsFromDictionary([
-            "pk": "pk",
-            "tag": "name"
-        ])
-        
-        return mapping
-    }()
-
-    override class func rkSetupRouter() {
-        RKObjectManager.sharedManager().router.routeSet.addRoute(RKRoute(withClass: HashTag.self, pathPattern: "/hashtags/:pk/", method: .GET))
-        RKObjectManager.sharedManager().router.routeSet.addRoute(RKRoute(withClass: HashTag.self, pathPattern: "/hashtags/", method: .POST))
-        RKObjectManager.sharedManager().router.routeSet.addRoute(RKRoute(withClass: HashTag.self, pathPattern: "/hashtags/:pk/", method: .PUT))
-        RKObjectManager.sharedManager().router.routeSet.addRoute(RKRoute(withClass: HashTag.self, pathPattern: "/hashtags/:pk/", method: .DELETE))
-    }
+  
+  static let mapping: RKEntityMapping = {
+    let mapping = RKEntityMapping(
+      forEntityForName: String(HashTag),
+      inManagedObjectStore: appDelegate().managedObjectStore)
+    
+    mapping.identificationAttributes = [ "pk" ]
+    mapping.addAttributeMappingsFromDictionary([
+      "pk": "pk",
+      "tag": "name"
+      ])
+    
+    return mapping
+  }()
+  
+  override class func rkSetupRouter() {
+    RKObjectManager.sharedManager().router.routeSet.addRoute(RKRoute(withClass: HashTag.self, pathPattern: "/hashtags/:pk/", method: .GET))
+    RKObjectManager.sharedManager().router.routeSet.addRoute(RKRoute(withClass: HashTag.self, pathPattern: "/hashtags/", method: .POST))
+    RKObjectManager.sharedManager().router.routeSet.addRoute(RKRoute(withClass: HashTag.self, pathPattern: "/hashtags/:pk/", method: .PUT))
+    RKObjectManager.sharedManager().router.routeSet.addRoute(RKRoute(withClass: HashTag.self, pathPattern: "/hashtags/:pk/", method: .DELETE))
+  }
 }

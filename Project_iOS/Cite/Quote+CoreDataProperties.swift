@@ -13,13 +13,13 @@ import Foundation
 import CoreData
 
 extension Quote {
-
-    @NSManaged var author: String?
-    @NSManaged var quote: String?
-    @NSManaged var created: NSDate?
-    @NSManaged var modified: NSDate?
-    @NSManaged var hashtags: NSSet?
-    @NSManaged var likers: NSSet?
-    @NSManaged var owner: User?
-
+  
+  @NSManaged var author: String?
+  @NSManaged var quote: String?
+  @NSManaged var created: NSDate?
+  @NSManaged var modified: NSDate?
+  @NSManaged var hashtags: NSSet?
+  @NSManaged var likers: NSSet?
+  @NSManaged var owner: User?
+  
 }

@@ -13,7 +13,7 @@ import Foundation
 import CoreData
 
 extension RemoteEntity {
-
-    @NSManaged var pk: NSNumber?
-
+  
+  @NSManaged var pk: NSNumber?
+  
 }

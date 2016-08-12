@@ -13,8 +13,8 @@ import Foundation
 import CoreData
 
 extension HashTag {
-
-    @NSManaged var name: String?
-    @NSManaged var quotes: NSSet?
-
+  
+  @NSManaged var name: String?
+  @NSManaged var quotes: NSSet?
+  
 }

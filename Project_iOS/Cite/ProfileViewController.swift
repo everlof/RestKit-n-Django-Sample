@@ -9,10 +9,10 @@
 import Foundation
 
 class ProfileViewController: ViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationItem.title = appDelegate().loginManager.loggedInUser?.username
-    }
-    
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    navigationItem.title = appDelegate().loginManager.loggedInUser?.username
+  }
+  
 }

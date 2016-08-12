@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 class TabBarController: UITabBarController {
-    
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
-    }
-    
+  
+  override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    return .LightContent
+  }
+  
 }

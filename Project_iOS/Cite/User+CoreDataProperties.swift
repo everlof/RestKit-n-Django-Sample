@@ -13,15 +13,15 @@ import Foundation
 import CoreData
 
 extension User {
-
-    @NSManaged var avatar: String?
-    @NSManaged var email: String?
-    @NSManaged var firstName: String?
-    @NSManaged var isSuperuser: NSNumber?
-    @NSManaged var lastName: String?
-    @NSManaged var token: String?
-    @NSManaged var username: String?
-    @NSManaged var likes: NSSet?
-    @NSManaged var quotes: NSSet?
-
+  
+  @NSManaged var avatar: String?
+  @NSManaged var email: String?
+  @NSManaged var firstName: String?
+  @NSManaged var isSuperuser: NSNumber?
+  @NSManaged var lastName: String?
+  @NSManaged var token: String?
+  @NSManaged var username: String?
+  @NSManaged var likes: NSSet?
+  @NSManaged var quotes: NSSet?
+  
 }
