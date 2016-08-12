@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class AddQuoteViewController: UIViewController,
+class AddQuoteViewController: ViewController,
     UITextViewDelegate
 {
     var context: NSManagedObjectContext! = nil
@@ -30,8 +30,6 @@ class AddQuoteViewController: UIViewController,
             target: self,
             action: #selector(publish)
         )
-        
-        self.view.backgroundColor = UIColor.whiteColor()
         
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.delegate = self

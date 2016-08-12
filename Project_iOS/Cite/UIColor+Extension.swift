@@ -21,7 +21,27 @@ extension UIColor {
     
     // Extracted with http://lokeshdhakar.com/projects/color-thief/
     
-    class func citeDarkColor() -> UIColor {
-        return UIColor.UIColorFromRGB(0x0D4F6C)
+    class func citeColor1() -> UIColor {
+        return UIColor.UIColorFromRGB(0xD3D5B6)
+    }
+    
+    class func citeColor2() -> UIColor {
+        return UIColor.UIColorFromRGB(0x1E84A8)
+    }
+    
+    class func citeColor3() -> UIColor {
+        return UIColor.UIColorFromRGB(0x81BEBD)
+    }
+    
+    class func citeColor4() -> UIColor {
+        return UIColor.UIColorFromRGB(0x0D4F71)
+    }
+    
+    class func citeColor5() -> UIColor {
+        return UIColor.UIColorFromRGB(0xA4C4BB)
+    }
+    
+    class func backgroundColor() -> UIColor {
+        return UIColor.UIColorFromRGB(0xFEFFFA)
     }
 }

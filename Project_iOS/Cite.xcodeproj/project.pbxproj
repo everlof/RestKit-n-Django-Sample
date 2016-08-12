@@ -19,6 +19,9 @@
 		C45C90591D5C52EC0064FC3D /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C90581D5C52EC0064FC3D /* UIColor+Extension.swift */; };
 		C45C905E1D5C538E0064FC3D /* LoginFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C905D1D5C538E0064FC3D /* LoginFieldContainer.swift */; };
 		C45C90601D5C54130064FC3D /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C905F1D5C54130064FC3D /* UIImage+Extension.swift */; };
+		C45C90631D5CFBB40064FC3D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C90621D5CFBB40064FC3D /* ViewController.swift */; };
+		C45C90651D5DB8280064FC3D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C90641D5DB8280064FC3D /* ProfileViewController.swift */; };
+		C45C90671D5DB9B80064FC3D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45C90661D5DB9B80064FC3D /* TabBarController.swift */; };
 		C4731CA71D58BBD80095D706 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4731CA61D58BBD80095D706 /* Assets.xcassets */; };
 		C476D6071D5647C4002269BA /* Cite.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C476D6051D5647C4002269BA /* Cite.xcdatamodeld */; };
 		C476D6101D564921002269BA /* RemoteEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C476D6081D564921002269BA /* RemoteEntity+CoreDataProperties.swift */; };
@@ -50,6 +53,9 @@
 		C45C90581D5C52EC0064FC3D /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		C45C905D1D5C538E0064FC3D /* LoginFieldContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginFieldContainer.swift; sourceTree = "<group>"; };
 		C45C905F1D5C54130064FC3D /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		C45C90621D5CFBB40064FC3D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C45C90641D5DB8280064FC3D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C45C90661D5DB9B80064FC3D /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		C4607EE51D54FE4300E26C0F /* Cite-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cite-Bridging-Header.h"; sourceTree = "<group>"; };
 		C4731CA61D58BBD80095D706 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C476D6061D5647C4002269BA /* Cite.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cite.xcdatamodel; sourceTree = "<group>"; };
@@ -170,6 +176,7 @@
 		C45C90611D5C57A80064FC3D /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				C45C90641D5DB8280064FC3D /* ProfileViewController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -193,6 +200,7 @@
 		C476D6201D574149002269BA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C45C90661D5DB9B80064FC3D /* TabBarController.swift */,
 				C476D6211D57414E002269BA /* Base */,
 				C45C904A1D58BD1D0064FC3D /* Login */,
 				C45C90611D5C57A80064FC3D /* Profile */,
@@ -205,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				C476D6221D57415E002269BA /* FetchedResultBaseController.swift */,
+				C45C90621D5CFBB40064FC3D /* ViewController.swift */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -353,7 +362,9 @@
 				C476D6141D564921002269BA /* Quote+CoreDataProperties.swift in Sources */,
 				C476D6271D574207002269BA /* QuoteCell.swift in Sources */,
 				C45C90551D59D5300064FC3D /* UITextView+Extension.swift in Sources */,
+				C45C90651D5DB8280064FC3D /* ProfileViewController.swift in Sources */,
 				C45C904E1D58BDAF0064FC3D /* LoginManager.swift in Sources */,
+				C45C90631D5CFBB40064FC3D /* ViewController.swift in Sources */,
 				C476D6121D564921002269BA /* User+CoreDataProperties.swift in Sources */,
 				C476D6151D564921002269BA /* Quote.swift in Sources */,
 				C45C90601D5C54130064FC3D /* UIImage+Extension.swift in Sources */,
@@ -363,6 +374,7 @@
 				C476D6111D564921002269BA /* RemoteEntity.swift in Sources */,
 				C45C90571D5C4BD70064FC3D /* UIView+Extension.swift in Sources */,
 				C476D6071D5647C4002269BA /* Cite.xcdatamodeld in Sources */,
+				C45C90671D5DB9B80064FC3D /* TabBarController.swift in Sources */,
 				C476D6171D564921002269BA /* HashTag.swift in Sources */,
 				C476D6131D564921002269BA /* User.swift in Sources */,
 				C45C90531D59D3B10064FC3D /* AddQuoteViewController.swift in Sources */,

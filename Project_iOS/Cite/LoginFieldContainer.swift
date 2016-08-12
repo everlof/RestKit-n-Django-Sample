@@ -13,7 +13,7 @@ class LoginFieldContainer: UIView {
     private var iconOffsetConstraint: NSLayoutConstraint!
     
     private let input = UITextField()
-    private let icon = UIImageView()
+     let icon = UIImageView()
     
     var value: String? {
         get {

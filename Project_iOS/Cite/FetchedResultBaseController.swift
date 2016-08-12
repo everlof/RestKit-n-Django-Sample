@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
-class FetchedResultBaseController: UIViewController,
+class FetchedResultBaseController: ViewController,
     NSFetchedResultsControllerDelegate,
     UITableViewDataSource,
     UITableViewDelegate
@@ -50,6 +50,8 @@ class FetchedResultBaseController: UIViewController,
         
         self.tableView.estimatedSectionFooterHeight = 0.0
         self.tableView.sectionFooterHeight = UITableViewAutomaticDimension
+        
+        self.tableView.backgroundColor = UIColor.clearColor()
         
         view.addSubview(self.tableView)
         

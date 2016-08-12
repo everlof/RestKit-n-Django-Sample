@@ -25,11 +25,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var setupControllersOnceToken: dispatch_once_t = 0
     
-    let mainTabBar = UITabBarController()
+    let mainTabBar = TabBarController()
     
     var managedObjectStore: RKManagedObjectStore!
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        UINavigationBar.appearance().tintColor = UIColor.citeColor4()
+        UINavigationBar.appearance().barTintColor = UIColor.citeColor5()
+        UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(named: "ic_leftarrow")
+        
+        UITabBar.appearance().tintColor = UIColor.citeColor4()
+        UITabBar.appearance().barTintColor = UIColor.citeColor5()
+        
+        UIBarButtonItem.appearance()
+            .setTitleTextAttributes([NSFontAttributeName : UIFont.citeFontOfSize(18)],
+                                    forState: UIControlState.Normal)
         
         setupRestkit()
         
@@ -71,11 +82,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             var vcs = [UIViewController]()
             
             let quoteVC = QuoteViewController()
-            let quoteNavVC = UINavigationController()
+            let quoteNavVC = NavigationController()
             quoteNavVC.setViewControllers([ quoteVC ], animated: false)
             quoteNavVC.tabBarItem.title = "Quotes"
             quoteNavVC.tabBarItem.image = UIImage(named: "ic_quotes")
             vcs.append(quoteNavVC)
+            
+            let profileVC = ProfileViewController()
+            let profileNavVC = NavigationController()
+            profileNavVC.setViewControllers([ profileVC ], animated: false)
+            profileNavVC.tabBarItem.title = "Profile"
+            profileNavVC.tabBarItem.image = UIImage(named: "ic_user")
+            vcs.append(profileNavVC)
             
             self.mainTabBar.setViewControllers(vcs, animated: false)
             
